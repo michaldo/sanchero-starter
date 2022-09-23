@@ -1,0 +1,5 @@
+spring.web.locale: EN
+server.error:
+  include-message: always
+  include-binding-errors: always
+  include-exception: true
