@@ -132,7 +132,7 @@ Example 2. `curl -v localhost:8080/manve -d '{ "p1": -1, "p2": -1}' -H "Content-
     <dependency>
         <groupId>io.github.michaldo</groupId>
         <artifactId>sanchero-starter</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>0.0.1</version>
     </dependency>
 
 Sanchero is compiled with dependency to Spring Boot 2.7.3 and with Java 17.
