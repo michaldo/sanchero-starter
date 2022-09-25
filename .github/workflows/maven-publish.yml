@@ -14,11 +14,5 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
-    - name: show version
-      run: echo See ${{ github.ref_name }}
-
-    - name: Build with Maven
-      run: mvn --batch-mode --no-transfer-progress test -Drevision=${{ github.ref_name }}
-
-
-
+    - name: Build and deploy
+      run: mvn --batch-mode --no-transfer-progress deploy -Drevision=${{ github.ref_name }}
