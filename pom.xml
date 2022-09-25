@@ -10,7 +10,7 @@
     </parent>
     <groupId>io.github.michaldo</groupId>
     <artifactId>sanchero-starter</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>${revision}</version>
     <properties>
         <java.version>17</java.version>
     </properties>
@@ -82,6 +82,23 @@
                 </executions>
             </plugin>
             <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+                <version>1.3.0</version>
+                <configuration>
+                    <flattenMode>ossrh</flattenMode>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>flatten</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>flatten</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
                 <groupId>org.sonatype.plugins</groupId>
                 <artifactId>nexus-staging-maven-plugin</artifactId>
                 <version>1.6.7</version>
@@ -101,4 +118,26 @@
             <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
+
+    <name>${project.groupId}:${project.artifactId}</name>
+    <description>Library that solves 2 well known problems with Spring Boot MVC exception handling</description>
+    <url>https://github.com/michaldo/sanchero-starter</url>
+    <scm>
+        <url>https://github.com/michaldo/sanchero-starter</url>
+        <connection>scm:git:git@github.com:michaldo/sanchero-starter.git</connection>
+        <developerConnection>scm:git:git@github.com:michaldo/sanchero-starter.git</developerConnection>
+    </scm>
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <name>Michal Domagala</name>
+            <organization>https://github.com/michaldo</organization>
+            <organizationUrl>https://github.com/michaldo</organizationUrl>
+        </developer>
+    </developers>
 </project>
