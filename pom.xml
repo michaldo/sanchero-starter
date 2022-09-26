@@ -129,7 +129,7 @@
                         <arg>loopback</arg>
                     </gpgArguments>
                 </configuration>
-            </plugin            
+             </plugin>
         </plugins>
     </build>
     <distributionManagement>
