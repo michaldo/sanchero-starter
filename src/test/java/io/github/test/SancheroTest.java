@@ -30,7 +30,7 @@ class SancheroTest {
                           "timestamp": "${json-unit.ignore}",
                           "status": 400,
                           "error": "Bad Request",
-                          "exception": "javax.validation.ConstraintViolationException",
+                          "exception": "jakarta.validation.ConstraintViolationException",
                           "message": "Validation failed",
                           "path": "/cve",
                           "errors": [

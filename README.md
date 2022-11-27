@@ -129,13 +129,24 @@ Example 2. `curl -v localhost:8080/manve -d '{ "p1": -1, "p2": -1}' -H "Content-
 ```
 
 ### Installation
+
+For Spring Boot 2.x:
+
     <dependency>
         <groupId>io.github.michaldo</groupId>
         <artifactId>sanchero-starter</artifactId>
         <version>0.0.1</version>
     </dependency>
 
-Sanchero is compiled with dependency to Spring Boot 2.7.3 and with Java 17.
+For Spring Boot 3.x:
+
+    <dependency>
+        <groupId>io.github.michaldo</groupId>
+        <artifactId>sanchero-starter</artifactId>
+        <version>1.0.0</version>
+    </dependency>
+
+Sanchero is compiled with Java 17.
 
 If for any reason the library must be customized, I recommend copy-paste source code. It is just one file.
 
@@ -146,23 +157,3 @@ If for any reason the library must be customized, I recommend copy-paste source 
 > It is not clear to me how to fix that. Fortunately, often ConstraintViolationException is thrown only from
 > `Conroller` layer.
 
-### Sanchero vs RFC 7807 "Problem details for HTTP APIs"
-
-RFC 7807 https://www.rfc-editor.org/rfc/rfc7807 defines standard error format. 
-The standard is published in 2016 and not popular so far.
-
-Sanchero follows Spring Boot error format.
-
-### Sanchero vs Zalando Problem library
-
-zalando/problem https://github.com/zalando/problem is RFC 7807 implementation.
-
-zalando/problem Spring implementation is built over `@ControllerAdvice` and has the following drawbacks:
-1. Does not handle exceptions thrown in Filter
-2. Does not handle `HttpServletResponse.sendError(...)`
-3. Modifies security configuration:
-
-> For `http.authorizeRequests().anyRequest().authenticated().and().build();` response code
-is 403 for vanilla Spring Boot and 401 for Spring Boot + problem-spring-web-starter v. 0.27.0
-
-Sanchero is built over combination `@ControllerAdvice`/`ErrorAttributes` and not affected by these drawbacks 
