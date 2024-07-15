@@ -1,3 +1,5 @@
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.michaldo/sanchero-starter.svg?label=Maven%20Central)](https://search.maven.org/artifact/io.github.michaldo/sanchero-starter)
+
 # Sanchero
 ## Sancho Pansa error library
 
