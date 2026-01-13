@@ -2,8 +2,9 @@ package io.github.test;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.resttestclient.TestRestTemplate;
+import org.springframework.boot.resttestclient.autoconfigure.AutoConfigureTestRestTemplate;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
@@ -13,13 +14,14 @@ import static net.javacrumbs.jsonunit.assertj.JsonAssertions.assertThatJson;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@AutoConfigureTestRestTemplate
 class SancheroTest {
 
     @Autowired
     private TestRestTemplate restTemplate;
 
     @Test
-    void testCve() {
+    void testConstraintViolationException() {
 
         ResponseEntity<String> response = restTemplate.getForEntity("/cve?p1=-1&p2=-1", String.class);
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
@@ -48,7 +50,7 @@ class SancheroTest {
     }
 
     @Test
-    void testManve() {
+    void testMethodArgumentNotValidException() {
 
         ResponseEntity<String> response = restTemplate.postForEntity("/manve", Map.of("p1", "-1", "p2", "-1"), String.class);
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);

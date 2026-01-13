@@ -5,15 +5,12 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.0.0</version>
+        <version>4.0.1</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>io.github.michaldo</groupId>
     <artifactId>sanchero-starter</artifactId>
     <version>${revision}</version>
-    <properties>
-        <java.version>17</java.version>
-    </properties>
     <dependencies>
 
         <dependency>
@@ -21,12 +18,12 @@
             <artifactId>spring-boot-autoconfigure</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-webmvc</artifactId>
         </dependency>
         <dependency>
-            <groupId>jakarta.validation</groupId>
-            <artifactId>jakarta.validation-api</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-validation</artifactId>
         </dependency>
         <dependency>
             <groupId>jakarta.servlet</groupId>
@@ -40,7 +37,17 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <artifactId>spring-boot-starter-webmvc</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-restclient</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webmvc-test</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -51,7 +58,7 @@
         <dependency>
             <groupId>net.javacrumbs.json-unit</groupId>
             <artifactId>json-unit-assertj</artifactId>
-            <version>2.35.0</version>
+            <version>5.1.0</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
